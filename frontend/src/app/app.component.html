@@ -1,0 +1,42 @@
+<div class="text-center" style="margin-top: 25px;">
+  <div class="container">
+    <form (submit)="false;">
+      <div class="form-group row">
+        <label for="beta" class="col-md-2 col-form-label">
+          &beta;:
+        </label>
+        <div class="col-md-2">
+          <input class="form-control" type="number" id="beta" name="beta" [(ngModel)]="request.beta"/>
+        </div>
+        <label for="alpha" class="col-md-2 col-form-label">
+          &alpha;:
+        </label>
+        <div class="col-md-2">
+          <input class="form-control" type="number" id="alpha" name="alpha" [(ngModel)]="request.alpha"/>
+        </div>
+        <label for="simulate" class="col-md-2 col-form-label">
+          Симулювати?:
+        </label>
+        <div class="col-md-2">
+          <input type="checkbox" id="simulate" name="simulate" [(ngModel)]="request.simulate"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="users" class="col-md-2 col-form-label" *ngIf="request.simulate">
+          Кількість користувачів:
+        </label>
+        <div class="col-md-2" *ngIf="request.simulate">
+          <input class="form-control" type="number" id="users" name="users" [(ngModel)]="request.users"/>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-info btn-block" (click)="analyze()">
+            Провести аналіз
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row network-row" #graph>
+
+    </div>
+  </div>
+</div>
